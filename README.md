@@ -134,4 +134,63 @@ The project generates:
 Install the required Python libraries:
 
 ```bash
+```bash
 py -m pip install -r requirements.txt
+py -m streamlit run app.py
+```
+
+## Live Dashboard
+
+Explore the deployed Streamlit application:
+
+**[Open Nassau Candy Factory Optimization Dashboard](https://o569m9ssgtuafuvaxnxyep.streamlit.app/)**
+
+## Machine Learning Model Comparison
+
+Three regression models were evaluated using RMSE, MAE, and R².
+
+| Model | RMSE | MAE | R² |
+|---|---:|---:|---:|
+| Linear Regression | 1.8041 | 1.5402 | 0.6068 |
+| Random Forest Regressor | 0.6685 | 0.4899 | 0.9460 |
+| Gradient Boosting Regressor | 0.8682 | 0.6853 | 0.9089 |
+
+Random Forest achieved the lowest RMSE and MAE and the highest R² among the evaluated models.
+
+**Important:** The lead-time target is scenario-generated using distance and shipping-mode assumptions. These metrics measure performance against that generated target, not verified real-world shipping times.
+
+## Repository Files
+
+| File | Description |
+|---|---|
+| `app.py` | Streamlit dashboard application |
+| `requirements.txt` | Python dependencies |
+| `ml_model_comparison.csv` | Model evaluation results |
+| `final_factory_recommendations.csv` | Factory recommendation output |
+| `dashboard_recommendations.csv` | Dashboard recommendation data |
+| `product_recommendations.csv` | Product-level recommendation output |
+| `project_kpi_summary.csv` | Summary KPIs |
+| `route_cluster_analysis.csv` | Route clustering output |
+| `Nassau Candy Distributor.xlsx` | Source dataset, subject to sharing permissions |
+
+## Limitations
+
+- Lead-time estimates are scenario-based and depend on the assumptions used.
+- Recommendations represent potential opportunities, not confirmed operational savings.
+- Actual shipping performance and factory capacity should be validated before implementing a recommendation.
+- Recommendation scores use selected policy weights and should not be interpreted as machine-learning feature importance.
+
+## Future Improvements
+
+- Validate lead-time predictions against reliable historical transit-time data.
+- Incorporate actual factory capacity, production cost, and shipping rates.
+- Add automated scenario comparisons and downloadable reports.
+- Evaluate recommendations using real operational outcomes.
+
+## Author
+
+**Shaikh Saniya Afsar**
+
+Project: Factory Reallocation & Shipping Optimization Recommendation System  
+Organization: Unified Mentor  
+Project Type: Internship Project Report
