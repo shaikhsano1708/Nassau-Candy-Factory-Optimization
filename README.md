@@ -4,39 +4,39 @@
 
 This project develops a data-driven Factory Reallocation and Shipping Optimization Recommendation System for Nassau Candy Distributor.
 
-The system analyzes product, factory, destination, shipping mode, distance, lead-time scenarios, and profitability indicators to identify potential factory reallocation opportunities.
+The system analyzes product, factory, destination, shipping mode, geographical distance, scenario-based lead time, and profitability indicators to identify potential factory reallocation opportunities.
 
-The project combines data analysis, machine learning, route clustering, scenario simulation, and recommendation scoring to support logistics and operational decision-making.
+It combines data analysis, machine learning, route clustering, scenario simulation, and recommendation scoring to support logistics and operational decision-making.
 
 ## Objectives
 
-- Analyze product and shipping data
-- Identify current factory-to-destination distances
-- Calculate potential distance savings
-- Simulate alternative factory assignments
-- Estimate scenario-based shipping lead time
-- Evaluate potential lead-time reduction
-- Identify slow or high-distance route groups
-- Generate factory reallocation recommendations
-- Build an interactive Streamlit dashboard
+- Analyze product and shipping data.
+- Calculate factory-to-destination geographical distances.
+- Identify potential distance savings through factory reassignment.
+- Simulate alternative factory assignments.
+- Estimate scenario-based shipping lead times.
+- Evaluate potential lead-time reductions.
+- Identify high-distance and slow scenario-based routes.
+- Generate factory reallocation recommendations.
+- Build an interactive Streamlit dashboard.
 
 ## Dataset
 
-The dataset contains order-level information including:
+The project uses order-level data containing information such as:
 
 - Order ID
-- Order Date
-- Ship Date
+- Order Date and Ship Date
 - Ship Mode
 - Customer ID
 - Country/Region
-- City
-- State/Province
-- Product Name
+- City and State/Province
+- Product ID and Product Name
 - Sales
 - Units
 - Gross Profit
 - Cost
+
+**Note:** Ensure the source dataset is permitted for public sharing before uploading it to GitHub.
 
 ## Technologies Used
 
@@ -49,6 +49,7 @@ The dataset contains order-level information including:
 - OpenPyXL
 - Streamlit
 - Jupyter Notebook
+- GitHub
 
 ## Methodology
 
@@ -70,29 +71,25 @@ Alternative factories were evaluated to identify scenarios with potential distan
 
 ### 5. Lead-Time Scenario Modeling
 
-Scenario-based lead time was estimated using distance and shipping mode assumptions.
+Scenario-based lead time was estimated using geographical distance and shipping-mode assumptions.
 
 ### 6. Machine Learning
 
-The following regression models were evaluated:
+Three regression models were evaluated:
 
 - Linear Regression
 - Random Forest Regressor
 - Gradient Boosting Regressor
 
-Evaluation metrics:
-
-- RMSE
-- MAE
-- R²
+The models were evaluated using RMSE, MAE, and R².
 
 ### 7. Route Clustering
 
-K-Means clustering was used to identify groups of routes based on distance, lead time, lead-time savings, distance reduction, and profit margin.
+K-Means clustering was used to group routes based on distance, lead time, lead-time savings, distance reduction, and profit margin.
 
 ### 8. Recommendation Engine
 
-A recommendation score was calculated using:
+Recommendation scores were calculated using selected factors:
 
 - Lead-Time Reduction
 - Distance Reduction
@@ -101,16 +98,28 @@ A recommendation score was calculated using:
 
 The resulting scenarios were classified into recommendation levels.
 
-## Dashboard
+## Machine Learning Model Comparison
 
-The Streamlit dashboard contains four main sections:
+| Model | RMSE | MAE | R² |
+|---|---:|---:|---:|
+| Linear Regression | 1.8041 | 1.5402 | 0.6068 |
+| Random Forest Regressor | 0.6685 | 0.4899 | 0.9460 |
+| Gradient Boosting Regressor | 0.8682 | 0.6853 | 0.9089 |
+
+Random Forest achieved the lowest RMSE and MAE and the highest R² among the three evaluated models.
+
+**Important:** These metrics measure model performance against a scenario-generated lead-time target. They do not establish accuracy against verified real-world shipping times.
+
+## Interactive Dashboard
+
+The project includes a Streamlit dashboard with the following sections:
 
 1. Factory Optimization
 2. What-If Analysis
 3. Recommendations
 4. Risk & Impact
 
-Users can filter scenarios by:
+Users can explore scenarios using filters such as:
 
 - Product
 - Region
@@ -119,45 +128,19 @@ Users can filter scenarios by:
 - Alternative Factory
 - Speed Priority
 
+**Live Dashboard:**  
+[Open Nassau Candy Factory Optimization Dashboard](https://o569m9ssgtuafuvaxnxyep.streamlit.app/)
+
 ## Project Outputs
 
-The project generates:
+The repository includes analysis and recommendation outputs such as:
 
 - Factory reallocation recommendations
+- Product-level recommendations
 - Route cluster analysis
 - KPI summary
-- Scenario analysis
-- Interactive Streamlit dashboard
-
-## How to Run
-
-Install the required Python libraries:
-
-```bash
-```bash
-py -m pip install -r requirements.txt
-py -m streamlit run app.py
-```
-
-## Live Dashboard
-
-Explore the deployed Streamlit application:
-
-**[Open Nassau Candy Factory Optimization Dashboard](https://o569m9ssgtuafuvaxnxyep.streamlit.app/)**
-
-## Machine Learning Model Comparison
-
-Three regression models were evaluated using RMSE, MAE, and R².
-
-| Model | RMSE | MAE | R² |
-|---|---:|---:|---:|
-| Linear Regression | 1.8041 | 1.5402 | 0.6068 |
-| Random Forest Regressor | 0.6685 | 0.4899 | 0.9460 |
-| Gradient Boosting Regressor | 0.8682 | 0.6853 | 0.9089 |
-
-Random Forest achieved the lowest RMSE and MAE and the highest R² among the evaluated models.
-
-**Important:** The lead-time target is scenario-generated using distance and shipping-mode assumptions. These metrics measure performance against that generated target, not verified real-world shipping times.
+- Machine learning model comparison
+- Dashboard recommendation data
 
 ## Repository Files
 
@@ -165,25 +148,56 @@ Random Forest achieved the lowest RMSE and MAE and the highest R² among the eva
 |---|---|
 | `app.py` | Streamlit dashboard application |
 | `requirements.txt` | Python dependencies |
-| `ml_model_comparison.csv` | Model evaluation results |
+| `ml_model_comparison.csv` | Machine learning evaluation results |
 | `final_factory_recommendations.csv` | Factory recommendation output |
 | `dashboard_recommendations.csv` | Dashboard recommendation data |
-| `product_recommendations.csv` | Product-level recommendation output |
-| `project_kpi_summary.csv` | Summary KPIs |
+| `product_recommendations.csv` | Product-level recommendations |
+| `project_kpi_summary.csv` | Project KPI summary |
 | `route_cluster_analysis.csv` | Route clustering output |
-| `Nassau Candy Distributor.xlsx` | Source dataset, subject to sharing permissions |
+
+## How to Run Locally
+
+### Step 1: Clone the repository
+
+```bash
+git clone https://github.com/shaikhsano1708/Nassau-Candy-Factory-Optimization.git
+```
+
+### Step 2: Open the project folder
+
+```bash
+cd Nassau-Candy-Factory-Optimization
+```
+
+### Step 3: Install dependencies
+
+```bash
+py -m pip install -r requirements.txt
+```
+
+### Step 4: Run the Streamlit dashboard
+
+```bash
+py -m streamlit run app.py
+```
+
+The dashboard should open in your default browser.
+
+**Prerequisite:** Python must be installed. The source Excel dataset must also be available locally if the application reads it directly.
 
 ## Limitations
 
-- Lead-time estimates are scenario-based and depend on the assumptions used.
+- Lead-time estimates are based on scenario assumptions.
 - Recommendations represent potential opportunities, not confirmed operational savings.
-- Actual shipping performance and factory capacity should be validated before implementing a recommendation.
+- Actual shipping performance, factory capacity, production costs, and shipping rates should be validated before implementing recommendations.
 - Recommendation scores use selected policy weights and should not be interpreted as machine-learning feature importance.
+- Model metrics should be interpreted in the context of the generated target.
 
 ## Future Improvements
 
 - Validate lead-time predictions against reliable historical transit-time data.
-- Incorporate actual factory capacity, production cost, and shipping rates.
+- Incorporate actual factory capacity, production costs, and shipping rates.
+- Improve location and route data quality.
 - Add automated scenario comparisons and downloadable reports.
 - Evaluate recommendations using real operational outcomes.
 
@@ -191,6 +205,10 @@ Random Forest achieved the lowest RMSE and MAE and the highest R² among the eva
 
 **Shaikh Saniya Afsar**
 
-Project: Factory Reallocation & Shipping Optimization Recommendation System  
-Organization: Unified Mentor  
-Project Type: Internship Project Report
+**Organization:** Unified Mentor  
+**Project Type:** Internship Project Report
+
+## Project Links
+
+- [GitHub Repository](https://github.com/shaikhsano1708/Nassau-Candy-Factory-Optimization)
+- [Live Streamlit Dashboard](https://o569m9ssgtuafuvaxnxyep.streamlit.app/)
