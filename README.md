@@ -182,6 +182,19 @@ py -m streamlit run app.py
 ```
 
 The dashboard should open in your default browser.
+## Dashboard Screenshots
+
+### 1. Factory Optimization
+![Factory Optimization](screenshots/01_Factory_Optimization.png)
+
+### 2. What-If Analysis
+![What-If Analysis](screenshots/02_What_If_Analysis.png)
+
+### 3. Recommendations
+![Recommendations](screenshots/03_Recommendations.png)
+
+### 4. Risk & Impact
+![Risk & Impact](screenshots/04_Risk_Impact.png)
 
 **Prerequisite:** Python must be installed. The source Excel dataset must also be available locally if the application reads it directly.
 
