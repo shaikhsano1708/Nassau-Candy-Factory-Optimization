@@ -225,3 +225,6 @@ The dashboard should open in your default browser.
 
 - [GitHub Repository](https://github.com/shaikhsano1708/Nassau-Candy-Factory-Optimization)
 - [Live Streamlit Dashboard](https://o569m9ssgtuafuvaxnxyep.streamlit.app/)
+## Research Paper
+
+[Download the Nassau Candy Factory Optimization Research Paper (PDF)](Nassau_Candy_Research_Paper_Corrected.pdf)
